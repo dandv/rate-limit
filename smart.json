@@ -1,0 +1,8 @@
+{
+  "name": "rate-limit",
+  "description": "Rate-limit a function by queing up calls (instead of dropping them like throttle or debounce)",
+  "homepage": "https://github.com/StockBase/rate-limit",
+  "author": "Dan Dascalescu <dNOSPAMdascalescu@gmail.com> (http://dandascalescu.com)",
+  "version": "0.1.0",
+  "git": "https://github.com/StockBase/rate-limit.git"
+}
