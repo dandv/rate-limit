@@ -8,7 +8,11 @@ or [debouncing](http://blogorama.nerdworks.in/entry-JavaScriptfunctionthrottling
 This is useful for API clients, web crawling, or other tasks that need to wait at least some amount of time
 between calls, but for which throttling per se (dropping calls) is unacceptable.
 
-Uses a private queue, as suggested in [this StackOverflow question](http://stackoverflow.com/questions/23072815/throttle-javascript-function-calls-but-with-queuing-dont-discard-calls).
+On the server, uses [futures](https://eventedmind.com/feed/nodejs-using-futures) to allow returning a value 
+from the rate-limited function. On the client, this is not yet implemented, but
+[possible](http://stackoverflow.com/questions/3249646/client-side-javascript-to-support-promises-futures-etc).
+
+A private queue is used internally, as suggested [on StackOverflow](http://stackoverflow.com/questions/23072815/throttle-javascript-function-calls-but-with-queuing-dont-discard-calls).
 
 ## Installation
 
@@ -39,12 +43,13 @@ bar(3, 'optional parameter');  // parameters are passed along to the original fu
 
 ## TODO
 
+* [client-side support for returning values](http://stackoverflow.com/questions/3249646/client-side-javascript-to-support-promises-futures-etc)
 * Meteor.Collection backing for persistence
 
 
 ## See also
 
-* [PowerQueue](https://github.com/CollectionFS/Meteor-powerqueue) - powerful native Meteor package for job queue processing, but [without scheduling capabilities](https://github.com/CollectionFS/Meteor-power-queue/issues/15)
+* [jobCollection](http://github.com/vsivsi/meteor-job-collection) - powerful native Meteor package for job queue processing
 * [limiter](https://github.com/jhurliman/node-rate-limiter) - A generic rate limiter for Node.js
 
 
