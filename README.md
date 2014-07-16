@@ -8,8 +8,8 @@ or [debouncing](http://blogorama.nerdworks.in/entry-JavaScriptfunctionthrottling
 This is useful for API clients, web crawling, or other tasks that need to wait at least some amount of time
 between calls, but for which throttling per se (dropping calls) is unacceptable.
 
-On the server, uses [futures](https://eventedmind.com/feed/nodejs-using-futures) to allow returning a value 
-from the rate-limited function. On the client, this is not yet implemented, but
+On the server, you can use [futures](https://eventedmind.com/feed/nodejs-using-futures) to allow returning
+a value from the rate-limited function. On the client, this is not yet implemented, but
 [possible](http://stackoverflow.com/questions/3249646/client-side-javascript-to-support-promises-futures-etc).
 
 A private queue is used internally, as suggested [on StackOverflow](http://stackoverflow.com/questions/23072815/throttle-javascript-function-calls-but-with-queuing-dont-discard-calls).
@@ -23,11 +23,9 @@ $ mrt add rate-limit
 ```
 
 
-## Usage
+## Example:
 
 Simply run `var fooLimited = rateLimit(foo, delayInMilliseconds);`.
-
-Example:
 
 ```javascript
 function foo(param1, param2) {
@@ -40,6 +38,20 @@ bar(1);  // runs right away
 bar(2);  // runs after 1 second
 bar(3, 'optional parameter');  // parameters are passed along to the original function
 ```
+
+## Usage
+
+    rateLimit(function, delayInMilliseconds, context /* default this */, options)
+    
+Parameters
+
+* `function` to call
+* minimum `delayInMilliseconds` to wait before consecutive calls to `function`
+* [context](http://stackoverflow.com/a/23073178/1269037) to pass (defaults to `this`)
+* options:
+  * `debug`: boolean - default `false`. Logs to the console the number of items in the queue after each call to `function`
+  * `futures`: boolean - default `false`. **MUST** be enabled if you need the return value of `function`. Will yield execution of next statement (not block) until `function` returns.
+
 
 ## TODO
 
