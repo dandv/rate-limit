@@ -1,25 +1,26 @@
-RateLimit
+rateLimit
 =========
 
-Easily rate-limit a function to run no more often than every X miliseconds, by *queuing up* calls. All calls will be
-eventually executed, unlike [throttling](http://drupalmotion.com/article/debounce-and-throttle-visual-explanation)
-or [debouncing](http://blogorama.nerdworks.in/entry-JavaScriptfunctionthrottlingan.aspx), which drop extra calls.
+Easily rate-limit a function to run no more often than every X miliseconds, 
+by *queuing up* calls. All calls will be eventually executed, unlike 
+[throttling](http://drupalmotion.com/article/debounce-and-throttle-visual-explanation)
+or [debouncing](http://blogorama.nerdworks.in/entry-JavaScriptfunctionthrottlingan.aspx), 
+which drop extra calls.
 
-This is useful for API clients, web crawling, or other tasks that need to wait at least some amount of time
-between calls, but for which throttling per se (dropping calls) is unacceptable.
+This is useful for API clients, web crawling, or other tasks that need to wait 
+at least some amount of time between calls, but for which throttling per se 
+(dropping calls) is unacceptable.
 
-On the server, you can use [futures](https://eventedmind.com/feed/nodejs-using-futures) to allow returning
-a value from the rate-limited function. On the client, this is not yet implemented, but
-[possible](http://stackoverflow.com/questions/3249646/client-side-javascript-to-support-promises-futures-etc).
+On the server, you can use [futures](https://eventedmind.com/feed/nodejs-using-futures) 
+to allow returning a value from the rate-limited function. On the client, this 
+is not yet implemented, but [possible](http://stackoverflow.com/questions/3249646/client-side-javascript-to-support-promises-futures-etc).
 
 A private queue is used internally, as suggested [on StackOverflow](http://stackoverflow.com/questions/23072815/throttle-javascript-function-calls-but-with-queuing-dont-discard-calls).
 
 ## Installation
 
-RateLimit can be installed with [Meteorite](https://github.com/oortcloud/meteorite/). From inside a Meteorite-managed app:
-
 ```bash
-$ mrt add rate-limit
+$ meteor add rate-limit
 ```
 
 
@@ -69,7 +70,7 @@ Parameters
 
 Author: Dan Dascalescu ([@dandv](http://github.com/dandv))
 
-Copyright (c) 2014 StockBase, LLC.
+Development initially sponsored by [StockBase](http://stockbase.com), LLC.
 
 The MIT License (MIT)
 

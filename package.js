@@ -1,10 +1,12 @@
-'use strict';
-
 Package.describe({
-  summary: 'Rate-limit a function by queing up calls (instead of dropping them like throttle or debounce)'
+  name: 'dandv:rate-limit',
+  summary: 'Rate-limit a function by queuing up calls (instead of dropping them like throttle or debounce)',
+  version: '1.0.1',
+  git: 'https://github.com/dandv/rate-limit.git'
 });
 
-Package.on_use(function (api) {
+Package.onUse(function (api) {
+  api.versionsFrom('0.9.0');
   api.export('rateLimit', ['client', 'server']);
-  api.add_files(['rate_limit.js'], ['client', 'server']);
+  api.addFiles(['rate_limit.js'], ['client', 'server']);
 });
